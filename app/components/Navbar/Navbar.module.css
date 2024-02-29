@@ -1,0 +1,42 @@
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem;
+    }
+
+    .title {
+        color: white;
+    }
+
+    .nav {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        gap: 50px;
+        padding: 20px;
+    }
+
+    .shoppingCart {
+        background-color: transparent;
+        border: none;
+    }
+
+    .shoppingCart:hover {
+        cursor: pointer;
+    }
+
+    .cartImage {
+        filter: invert(100%);
+    }
+
+    .txt {
+        text-decoration: none;
+        color: rgba(200, 200, 250);
+        font-family: 'Fjalla One', sans-serif;
+        letter-spacing: 4px;
+    }
+
+    .txt:hover {
+        color: #ccd0e8;
+    }
