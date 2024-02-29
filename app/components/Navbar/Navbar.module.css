@@ -2,7 +2,8 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 1rem;
+        border-bottom: 2px solid darkgrey;
+        padding: 0px 20px;
     }
 
     .title {
