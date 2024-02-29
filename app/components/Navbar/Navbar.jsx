@@ -8,7 +8,7 @@ export default function Navbar() {
   return (
     <div className={styles.header}>
       <div>
-        <h1 className={styles.title}>Shopping Cart</h1>
+        <h1 className={styles.title}>CDL</h1>
       </div>
 
       <nav className={styles.nav}>
@@ -26,7 +26,7 @@ export default function Navbar() {
       <Link href="/cart">
         <button className={styles.shoppingCart}>
           <span>
-            <Image src={Logo} alt="cart logo" />
+            <Image className={styles.cartImage} src={Logo} alt="cart logo" />
           </span>
         </button>
       </Link>
