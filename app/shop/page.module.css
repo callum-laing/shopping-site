@@ -1,3 +1,36 @@
-.title {
-    color: green;
+.shopContainer {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* Display in 3 columns */
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.imgCard {
+    width: 100%;
+    height: auto;
+}
+
+.btn {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #45a049;
 }

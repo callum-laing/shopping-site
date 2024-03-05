@@ -8,7 +8,7 @@
 }
 
 .shopBtn {
-    background-color: #A3BFD7;
+    background-color: #B6A457;
     width: 200px;
     height: 50px;
     font-size: 1.5rem;
@@ -19,5 +19,5 @@
 
 .shopBtn:hover {
     cursor: pointer;
-    background-color: #B6A457;
+    background-color: #A3BFD7;
 }

@@ -1,14 +1,18 @@
+import React from "react";
+import Card from "../components/Card";
 import Styles from "./page.module.css";
+import posts from "../data";
 
-export default function Shop() {
+const Shop = () => {
   return (
-    <main>
-      <h1>Shop Page</h1>
-      <p>
-        This needs to be a grid layout that has 3-4 products across, and then
-        goes down as many as it needs to, to show all of the products(API
-        perhaps?)
-      </p>
+    <main className={Styles.shopContainer}>
+      <div className={Styles.cards}>
+        {posts.map((post) => (
+          <Card key={post.id} {...post} />
+        ))}
+      </div>
     </main>
   );
-}
+};
+
+export default Shop;
