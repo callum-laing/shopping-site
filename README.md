@@ -19,3 +19,11 @@ Once a user has submitted their order, the amount on the cart itself should adju
 Make sure to test your app thoroughly using the React Testing Library. Be careful not to test react-router-dom directly, since it is an external library and the developers working on it must have tested the library already.
 
 As usual, style your application so you can show it off! You have a host of options provided already.
+
+Styling:
+
+Text #DCE8F0
+Background #001E38
+Primary #A3BFD7
+Secondary #753533
+Accent #B6A457

@@ -2,47 +2,33 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        border-bottom: 2px solid darkgrey;
         padding-inline: 20px;
+        box-shadow: 0 1px 0 0 #001E38;
     }
 
-    .title {
-        color: white;
+    .dancingScript {
+        color: #001E38;
     }
 
     .nav {
         display: flex;
         justify-content: center;
         align-content: center;
-        gap: 50px;
+        gap: 30px;
         padding: 20px;
     }
 
-    .shoppingCart {
-        background-color: transparent;
-        border: none;
-    }
 
-    .shoppingCart:hover {
-        cursor: pointer;
-    }
-
-    .cartImage {
-        filter: invert(100%);
-    }
-
-    .cartImage:hover {
-        filter: none;
-    }
 
     .txt {
         text-decoration: none;
-        color: rgba(200, 200, 250);
+        color: #001E38;
         font-family: 'Fjalla One', sans-serif;
         letter-spacing: 4px;
+        font-weight: bold;
     }
 
     .txt:hover {
         color: white;
-        text-decoration: underline;
+        box-shadow: 0 2px 0 0 #B6A457;
     }

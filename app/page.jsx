@@ -1,9 +1,12 @@
 import styles from "./page.module.css";
+import Link from "next/link";
 
 function Home() {
   return (
     <main className={styles.container}>
-      <img className={styles.shopImg} src="/shop.jpg" alt="shop front image" />
+      <Link className={styles.txt} href="/shop">
+        <button className={styles.shopBtn}>BROWSE</button>
+      </Link>
     </main>
   );
 }
