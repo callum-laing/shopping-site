@@ -8,16 +8,15 @@
 }
 
 .shopBtn {
-    background-color: #B6A457;
+    background-color: #A3BFD7;
     width: 200px;
     height: 50px;
     font-size: 1.5rem;
     font-weight: bold;
-    border-radius: 5px;
-    color: #001E38;
 }
 
 .shopBtn:hover {
     cursor: pointer;
-    background-color: #A3BFD7;
+    background-color: white;
+    box-shadow: 2px 2px 2px 2px #A3BFD7;
 }
