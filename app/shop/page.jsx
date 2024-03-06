@@ -9,8 +9,8 @@ const Shop = () => {
         <div key={post.id} className={Styles.card}>
           <img className="imgCard" src={`/cleats.jpg`} alt={post.name} />
           <h2>{post.name}</h2>
-          <p>${post.price}</p>
-          <button>Add to Cart</button>
+          <p>Price: ${post.price}</p>
+          <button className={Styles.btn}>Add to Cart</button>
         </div>
       ))}
     </main>

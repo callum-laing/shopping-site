@@ -1,36 +1,37 @@
 .shopContainer {
     display: grid;
-    place-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
     height: 100vh;
 }
 
-.cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    /* Display in 3 columns */
-    gap: 20px;
-    justify-content: center;
-}
-
 .card {
-    border: 1px solid #ccc;
-    padding: 10px;
     box-sizing: border-box;
+    width: 500px;
+    margin-top: 25px;
+    margin-left: 50px;
+    padding-bottom: 20px;
 }
 
-.imgCard {
-    width: 100%;
-    height: auto;
+.card>h2 {
+    margin: 2px;
 }
+
+.card>p {
+    margin: 2px;
+}
+
 
 .btn {
-    background-color: #4caf50;
-    color: white;
-    padding: 10px;
+    background-color: #A3BFD7;
     border: none;
     cursor: pointer;
+    padding: 10px;
+    font-size: 1.1em;
+    border-radius: 20px;
 }
 
 .btn:hover {
-    background-color: #45a049;
+    background-color: white;
+    box-shadow: 2px 2px 2px 2px #A3BFD7;
 }

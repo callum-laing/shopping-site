@@ -3,7 +3,7 @@
         align-items: center;
         justify-content: space-between;
         padding-inline: 20px;
-        box-shadow: 0 1px 0 0 #001E38;
+        box-shadow: rgb(229, 229, 229) 0px -1px 0px 0px inset;
     }
 
     .dancingScript {
@@ -29,6 +29,6 @@
     }
 
     .txt:hover {
-        color: white;
+        color: #A3BFD7;
         box-shadow: 0 2px 0 0 #B6A457;
     }
