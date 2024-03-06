@@ -1,22 +1,26 @@
 .container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     height: 100%;
-    background-image: url("/clothing.jpg");
+    background-image: url("/sneakers.jpg");
     background-size: cover;
 }
 
 .shopBtn {
-    background-color: #A3BFD7;
+    background-color: white;
     width: 200px;
     height: 50px;
+    margin-top: 200px;
     font-size: 1.5rem;
     font-weight: bold;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px 2px black;
+    border: none;
 }
 
 .shopBtn:hover {
     cursor: pointer;
-    background-color: white;
-    box-shadow: 2px 2px 2px 2px #A3BFD7;
+    background-color: black;
+    color: white;
 }

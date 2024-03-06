@@ -5,7 +5,7 @@ function Home() {
   return (
     <main className={styles.container}>
       <Link className={styles.txt} href="/shop">
-        <button className={styles.shopBtn}>BROWSE</button>
+        <button className={styles.shopBtn}>Shop Now</button>
       </Link>
     </main>
   );
