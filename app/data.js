@@ -24,7 +24,6 @@ const posts = [
   { id: 6, name: "Shoe Eight", price: 49.99, image: "/shoes/eight.jpg" },
   { id: 6, name: "Shoe Nine", price: 89.99, image: "/shoes/nine.jpg" },
   { id: 6, name: "Shoe Ten", price: 59.99, image: "/shoes/ten.jpg" },
-  { id: 6, name: "Shoe Eleven", price: 69.99, image: "/shoes/eleven.jpg" },
 ];
 
 export default posts;
