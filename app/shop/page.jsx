@@ -14,6 +14,7 @@ const Shop = () => {
             alt={post.name}
             width={450}
             height={600}
+            sizes="100vw"
           />
           <h2>{post.name}</h2>
           <p>Price: ${post.price}</p>

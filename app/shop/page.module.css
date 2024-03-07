@@ -14,9 +14,6 @@
 }
 
 
-.imgCard {
-    width: 100%;
-}
 
 .card>h2 {
     margin: 2px;
@@ -44,16 +41,14 @@
 
 @media (max-width: 768px) {
     .shopContainer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        grid-template-columns: repeat(1, 1fr);
+        gap: none;
     }
 }
 
 @media (max-width: 1024px) {
     .shopContainer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        grid-template-columns: repeat(2, 1fr);
+        gap: none;
     }
 }
