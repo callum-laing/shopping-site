@@ -39,16 +39,14 @@
     box-shadow: 2px 2px 2px 2px #A3BFD7;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     .shopContainer {
-        grid-template-columns: repeat(1, 1fr);
-        gap: none;
+        grid-template-columns: 1fr;
     }
 }
 
 @media (max-width: 1024px) {
     .shopContainer {
         grid-template-columns: repeat(2, 1fr);
-        gap: none;
     }
 }
