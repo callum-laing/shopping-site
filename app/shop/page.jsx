@@ -2,6 +2,7 @@ import React from "react";
 import Styles from "./page.module.css";
 import posts from "../data";
 import Image from "next/image";
+import Link from "next/link";
 
 const Shop = () => {
   return (
@@ -18,7 +19,19 @@ const Shop = () => {
           />
           <h2>{post.name}</h2>
           <p>Price: ${post.price}</p>
-          <button className={Styles.btn}>Add to Cart</button>
+          <Link
+            href={{
+              pathname: "/cart",
+              query: {
+                id: post.id,
+                name: post.name,
+                price: post.price,
+                image: post.image,
+              },
+            }}
+          >
+            Add to cart
+          </Link>
         </div>
       ))}
     </main>
