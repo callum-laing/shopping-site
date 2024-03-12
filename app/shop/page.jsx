@@ -24,9 +24,6 @@ const Shop = () => {
               pathname: "/cart",
               query: {
                 id: post.id,
-                name: post.name,
-                price: post.price,
-                image: post.image,
               },
             }}
           >

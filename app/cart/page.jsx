@@ -29,39 +29,34 @@ import React, { useState, useEffect } from "react";
 
 const Cart = () => {
   const searchParams = useSearchParams();
-  const id = searchParams.id;
+  const id = searchParams.get("id");
 
-  const [items, setItems] = useState(posts);
-
-  useEffect(() => {
-    const newItem = items.filter((item) => item.id === id);
-    setItems(newItem);
-  }, []);
+  const [items, setItems] = useState(() =>
+    JSON.parse(localStorage.getItem("items") || "[]")
+  );
 
   useEffect(() => {
-    const storedItems = JSON.parse(localStorage.getItem("items"));
-    if (storedItems) {
-      setItems(storedItems);
+    const newItem = posts.find((item) => item.id === parseInt(id));
+
+    if (newItem) {
+      return () => {
+        setItems((prevItems) => [...prevItems, newItem]);
+        localStorage.setItem("items", JSON.stringify([...items, newItem]));
+      };
     }
   }, []);
-
-  useEffect(() => {
-    localStorage.setItem("items", JSON.stringify(items));
-  }, [items]);
 
   return (
     <div>
       <h2>Please proceed to give me your card details!</h2>
-      <p>
-        {items.map((item) => (
-          <div key={item.id}>
-            {item.id}
-            {item.name}
-            {item.price}
-            {item.image}
-          </div>
-        ))}
-      </p>
+      {items.map((item, index) => (
+        <div key={index}>
+          {item.id}
+          {item.name}
+          {item.price}
+          {item.image}
+        </div>
+      ))}
     </div>
   );
 };
