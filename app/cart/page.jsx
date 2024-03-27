@@ -1,32 +1,23 @@
 "use client";
-import posts from "../data";
-import { useSearchParams } from "next/navigation";
 import React, { useState, useEffect } from "react";
-import { Suspense } from "react";
 import Styles from "./page.module.css";
+import Image from "next/image";
 
 const CartComponent = () => {
-  const searchParams = useSearchParams();
-  const id = searchParams.get("id");
-
-  const [items, setItems] = useState(() => {
-    if (typeof window !== "undefined") {
-      return JSON.parse(localStorage.getItem("items") || "[]");
-    } else {
-      return [];
-    }
-  });
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
-    const newItem = posts.find((item) => item.id === parseInt(id));
+    const fetchData = async () => {
+      try {
+        const storedItems = JSON.parse(localStorage.getItem("items")) || [];
+        const products = storedItems.map((item) => JSON.parse(item.product));
+        setItems(products);
+      } catch (error) {
+        console.error("Error fetching items:", error);
+      }
+    };
 
-    if (newItem) {
-      setItems([...items, { ...newItem, quantity: 1 }]);
-      localStorage.setItem(
-        "items",
-        JSON.stringify([...items, { ...newItem, quantity: 1 }])
-      );
-    }
+    fetchData();
   }, []);
 
   const increaseQuantity = (index) => {
@@ -50,11 +41,18 @@ const CartComponent = () => {
     <div className={Styles.cartContainer}>
       {items.map((item, index) => (
         <div className={Styles.cartItem} key={index}>
-          <img className={Styles.cartImage} src={item.image} alt={item.name} />
+          <Image
+            className={Styles.cartImage}
+            src={item.image}
+            alt={item.name}
+            width={100}
+            height={100}
+            priority
+          />
           <div className={Styles.itemDetails}>
-            <h3 className={Styles.CartTitle}>{item.name}</h3>
+            <h3 className={Styles.cartTitle}>{item.name}</h3>
             <span className={Styles.itemTxt}>
-              <p className={Styles.cartName}>£{item.price}</p>
+              <p className={Styles.cartPrice}>£{item.price}</p>
               <p>Quantity: {item.quantity}</p>
             </span>
             <button
@@ -64,7 +62,7 @@ const CartComponent = () => {
               +
             </button>
             <button
-              classNAme={Styles.btnSub}
+              className={Styles.btnSub}
               onClick={() => decreaseQuantity(index)}
             >
               -
@@ -76,10 +74,4 @@ const CartComponent = () => {
   );
 };
 
-export default function Cart() {
-  return (
-    <Suspense>
-      <CartComponent />
-    </Suspense>
-  );
-}
+export default CartComponent;

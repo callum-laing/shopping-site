@@ -1,29 +1,58 @@
-import React from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 import Styles from "./page.module.css";
-import posts from "../data";
 import Image from "next/image";
 import Link from "next/link";
+import { fetchProducts } from "../data";
 
 const Shop = () => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await fetchProducts({ limit: 10 });
+        setProducts(data);
+        setLoading(false);
+      } catch (error) {
+        setError(error);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
   return (
     <main className={Styles.shopContainer}>
-      {posts.map((post) => (
-        <div key={post.id} className={Styles.card}>
+      {products.map((product) => (
+        <div key={product.id} className={Styles.card}>
           <Image
             className="imgCard"
-            src={post.image}
-            alt={post.name}
+            src={product.image}
+            alt={product.title}
             width={450}
             height={600}
             sizes="100vw"
           />
-          <h2>{post.name}</h2>
-          <p>Price: ${post.price}</p>
+          <h2>{product.title}</h2>
+          <p>Price: ${product.price}</p>
           <Link
             href={{
               pathname: "/cart",
               query: {
-                id: post.id,
+                id: product.id,
+                product: JSON.stringify(product),
               },
             }}
           >
