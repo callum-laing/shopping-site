@@ -1,64 +1,73 @@
-// Server SIDE ONLY
-// import React from "react";
-// import posts from "../data";
-
-// export default function Cart({ searchParams }) {
-//   console.log(searchParams.id); // Logs post.id value from url
-//   const id = searchParams.id;
-//   const item = posts.filter((post) => post.id !== id);
-//   console.log(item);
-
-//   return (
-//     <div>
-//       <h2>Please proceed to give me your card details!</h2>
-//       <p>
-//         {item[0].id}
-//         {item[0].name}
-//         {item[0].price}
-//         {item[0].image}
-//       </p>
-//     </div>
-//   );
-// }
-
-//client SIDE ONLY
 "use client";
 import posts from "../data";
 import { useSearchParams } from "next/navigation";
 import React, { useState, useEffect } from "react";
+import { Suspense } from "react";
+import Styles from "./page.module.css";
 
-const Cart = () => {
+const CartComponent = () => {
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
 
-  const [items, setItems] = useState(() =>
-    JSON.parse(localStorage.getItem("items") || "[]")
-  );
+  const [items, setItems] = useState(() => {
+    if (typeof window !== "undefined") {
+      return JSON.parse(localStorage.getItem("items") || "[]");
+    } else {
+      return [];
+    }
+  });
 
   useEffect(() => {
     const newItem = posts.find((item) => item.id === parseInt(id));
 
     if (newItem) {
-      return () => {
-        setItems((prevItems) => [...prevItems, newItem]);
-        localStorage.setItem("items", JSON.stringify([...items, newItem]));
-      };
+      setItems([...items, { ...newItem, quantity: 1 }]);
+      localStorage.setItem(
+        "items",
+        JSON.stringify([...items, { ...newItem, quantity: 1 }])
+      );
     }
   }, []);
 
+  const increaseQuantity = (index) => {
+    const updatedItems = [...items];
+    updatedItems[index].quantity += 1;
+    setItems(updatedItems);
+    localStorage.setItem("items", JSON.stringify(updatedItems));
+  };
+
+  const decreaseQuantity = (index) => {
+    const updatedItems = [...items];
+    updatedItems[index].quantity -= 1;
+    setItems(updatedItems.filter((item) => item.quantity > 0));
+    localStorage.setItem(
+      "items",
+      JSON.stringify(updatedItems.filter((item) => item.quantity > 0))
+    );
+  };
+
   return (
-    <div>
-      <h2>Please proceed to give me your card details!</h2>
+    <div className={Styles.cartContainer}>
       {items.map((item, index) => (
-        <div key={index}>
-          {item.id}
-          {item.name}
-          {item.price}
-          {item.image}
+        <div className={Styles.cartItem} key={index}>
+          <img className={Styles.cartImage} src={item.image} alt={item.name} />
+          <div className={Styles.itemDetails}>
+            <h3 className={Styles.CartTitle}>{item.name}</h3>
+            <p className={Styles.cartName}>£{item.price}</p>
+            <p>Quantity: {item.quantity}</p>
+            <button onClick={() => increaseQuantity(index)}>+</button>
+            <button onClick={() => decreaseQuantity(index)}>-</button>
+          </div>
         </div>
       ))}
     </div>
   );
 };
 
-export default Cart;
+export default function Cart() {
+  return (
+    <Suspense>
+      <CartComponent />
+    </Suspense>
+  );
+}

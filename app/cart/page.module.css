@@ -1,0 +1,23 @@
+.cartContainer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    vertical-align: top;
+}
+
+.cartItem {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.cartImage {
+    max-width: 100px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.itemDetails {
+    display: inline-block;
+    vertical-align: top;
+}
