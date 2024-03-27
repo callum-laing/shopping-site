@@ -2,7 +2,7 @@ import "./globals.css";
 // import { createContext } from "react";
 
 // components
-import Navbar from "./components/Navbar/Navbar.jsx";
+import Navbar from "../components/Navbar/Navbar";
 
 export const metadata = {
   title: "Shopping Site",
