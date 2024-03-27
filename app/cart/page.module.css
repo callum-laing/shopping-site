@@ -7,7 +7,7 @@
 
 .cartItem {
     border: 1px solid #ccc;
-    padding: 10px;
+    padding: 20px 40px;
     margin-bottom: 10px;
 }
 
@@ -20,4 +20,8 @@
 .itemDetails {
     display: inline-block;
     vertical-align: top;
+}
+
+.itemTxt {
+    font-size: 0.8rem;
 }

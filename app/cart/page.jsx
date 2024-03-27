@@ -53,10 +53,22 @@ const CartComponent = () => {
           <img className={Styles.cartImage} src={item.image} alt={item.name} />
           <div className={Styles.itemDetails}>
             <h3 className={Styles.CartTitle}>{item.name}</h3>
-            <p className={Styles.cartName}>£{item.price}</p>
-            <p>Quantity: {item.quantity}</p>
-            <button onClick={() => increaseQuantity(index)}>+</button>
-            <button onClick={() => decreaseQuantity(index)}>-</button>
+            <span className={Styles.itemTxt}>
+              <p className={Styles.cartName}>£{item.price}</p>
+              <p>Quantity: {item.quantity}</p>
+            </span>
+            <button
+              className={Styles.btnAdd}
+              onClick={() => increaseQuantity(index)}
+            >
+              +
+            </button>
+            <button
+              classNAme={Styles.btnSub}
+              onClick={() => decreaseQuantity(index)}
+            >
+              -
+            </button>
           </div>
         </div>
       ))}
