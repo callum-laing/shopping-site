@@ -17,7 +17,17 @@
 }
 
 .itemDetails {
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;
+}
+
+.titleAndPrice {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #d1d1d1;
+    margin-bottom: 10px;
 }
 
 .cartTitle {
@@ -28,16 +38,19 @@
 .cartPrice {
     font-size: 16px;
     font-weight: bold;
+    width: 400px;
+    text-align: right;
 }
 
 .itemTxt {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .quantityContainer {
     display: flex;
     align-items: center;
+    margin-top: 5px;
 }
 
 .quantityBtn {
@@ -49,14 +62,22 @@
     align-items: center;
     border: 1px solid #ccc;
     cursor: pointer;
+    margin-right: 15px;
 }
 
 .removeBtn {
-    margin-left: 10px;
-    padding: 5px 10px;
-    background-color: red;
-    color: white;
+    color: red;
+    background: none;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.removeBtn:hover {
+    font-weight: 900;
+}
+
+.cartBtns {
+    display: flex;
 }

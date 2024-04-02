@@ -8,7 +8,6 @@ const CartComponent = () => {
   const { items, removeFromCart, incrementQuantity, decrementQuantity } =
     useCart();
 
-  // Calculate total price
   const total = items.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
@@ -21,20 +20,42 @@ const CartComponent = () => {
           <Image
             className={Styles.cartImage}
             src={item.image}
-            alt={item.name}
+            alt={item.title}
             width={100}
             height={100}
             priority
           />
           <div className={Styles.itemDetails}>
-            <h3 className={Styles.cartTitle}>{item.name}</h3>
-            <span className={Styles.itemTxt}>
-              <p className={Styles.cartPrice}>${item.price}</p>
-              <p>Quantity: {item.quantity}</p>
-              <button onClick={() => incrementQuantity(item.id)}>+</button>
-              <button onClick={() => decrementQuantity(item.id)}>-</button>
-              <button onClick={() => removeFromCart(item.id)}>Remove</button>
-            </span>
+            <div className={Styles.titleAndPrice}>
+              <h3 className={Styles.cartTitle}>
+                {item.title.substring(0, 20)}
+              </h3>
+              <p className={Styles.cartPrice}>
+                ${(item.price * item.quantity).toFixed(2)}
+              </p>{" "}
+              {/* Display total price */}
+            </div>
+            <p>Quantity: {item.quantity}</p>
+            <div className={Styles.cartBtns}>
+              <button
+                className={Styles.quantityBtn}
+                onClick={() => incrementQuantity(item.id)}
+              >
+                +
+              </button>
+              <button
+                className={Styles.quantityBtn}
+                onClick={() => decrementQuantity(item.id)}
+              >
+                -
+              </button>
+              <button
+                className={Styles.removeBtn}
+                onClick={() => removeFromCart(item.id)}
+              >
+                X
+              </button>
+            </div>
           </div>
         </div>
       ))}
