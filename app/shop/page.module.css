@@ -1,53 +1,69 @@
 .shopContainer {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(248px, 1fr));
+    gap: 24px;
+    padding: 48x 96px;
 }
 
 .card {
-    box-sizing: border-box;
-    max-width: 250px;
-    padding-bottom: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 8px;
+    padding: 24px;
+    max-width: 336px;
+    flex-grow: 1;
 }
 
 .imageContainer {
     position: relative;
 }
 
+.infoContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    gap: 8px;
+}
+
 .imgCard {
     width: 100%;
-    height: auto;
 }
 
-.addToCartBtn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #a3bfd7;
-    border: none;
-    cursor: pointer;
-    padding: 10px 20px;
-    font-size: 1em;
-    border-radius: 20px;
-    transition: background-color 0.3s ease-in-out;
-    display: none;
-}
-
-.imageContainer:hover .addToCartBtn {
-    display: block;
-}
-
-.addToCartBtn:hover {
-    background-color: white;
-    color: #a3bfd7;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-}
 
 .itemName {
     font-size: 1rem;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 1024px) {
+    .shopContainer {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 50px;
+    }
+
+    .card {
+        width: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .shopContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card {
+        width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .shopContainer {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+    }
+
+    .card {
+        width: 100%;
+    }
 }

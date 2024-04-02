@@ -11,12 +11,11 @@ const Shop = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [hoveredProductId, setHoveredProductId] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await fetchProducts({ limit: 10 });
+        const data = await fetchProducts({ limit: 20 });
         setProducts(data);
         setLoading(false);
       } catch (error) {
@@ -43,12 +42,7 @@ const Shop = () => {
   return (
     <main className={Styles.shopContainer}>
       {products.map((product) => (
-        <div
-          key={product.id}
-          className={Styles.card}
-          onMouseEnter={() => setHoveredProductId(product.id)}
-          onMouseLeave={() => setHoveredProductId(null)}
-        >
+        <div key={product.id} className={Styles.card}>
           <div className={Styles.imageContainer}>
             <Image
               className={Styles.imgCard}
@@ -58,17 +52,17 @@ const Shop = () => {
               height={300}
               sizes="100vw"
             />
-            {hoveredProductId === product.id && (
-              <button
-                className={Styles.addToCartBtn}
-                onClick={() => handleAddToCart(product)}
-              >
-                Add to Cart
-              </button>
-            )}
           </div>
-          <h2 className={Styles.itemName}>{product.title}</h2>
-          <p>Price: ${product.price}</p>
+          <div className={Styles.infoContainer}>
+            <h2 className={Styles.itemName}>{product.title}</h2>
+            <p>Price: ${product.price}</p>
+            <button
+              className={Styles.addToCartBtn}
+              onClick={() => handleAddToCart(product)}
+            >
+              Add to Cart
+            </button>
+          </div>
         </div>
       ))}
     </main>
