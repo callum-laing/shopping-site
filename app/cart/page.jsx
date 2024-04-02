@@ -8,6 +8,12 @@ const CartComponent = () => {
   const { items, removeFromCart, incrementQuantity, decrementQuantity } =
     useCart();
 
+  // Calculate total price
+  const total = items.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0
+  );
+
   return (
     <div className={Styles.cartContainer}>
       {items.map((item) => (
@@ -32,6 +38,9 @@ const CartComponent = () => {
           </div>
         </div>
       ))}
+      <div className={Styles.total}>
+        <h3>Total: ${total.toFixed(2)}</h3>
+      </div>
     </div>
   );
 };
