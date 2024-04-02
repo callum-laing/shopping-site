@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(248px, 1fr));
     gap: 24px;
-    padding: 48x 96px;
+    padding: 48px 96px;
 }
 
 .card {
@@ -10,8 +10,6 @@
     flex-direction: column;
     gap: 8px;
     padding: 24px;
-    max-width: 336px;
-    flex-grow: 1;
 }
 
 .imageContainer {
@@ -30,10 +28,16 @@
     width: 100%;
 }
 
-
 .itemName {
     font-size: 1rem;
 }
+
+.addToCartBtn {
+    display: block;
+    width: 100%;
+    cursor: pointer;
+}
+
 
 /* Media queries for responsiveness */
 @media (max-width: 1024px) {
