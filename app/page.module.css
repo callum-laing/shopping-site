@@ -13,6 +13,18 @@
     text-align: center;
 }
 
+.introTxt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 600px;
+    font-size: 2rem;
+    text-align: center;
+    font-family: 'Fjalla One', sans-serif;
+    text-transform: uppercase;
+}
+
 .shopBtn {
     background-color: white;
     width: 150px;
@@ -36,14 +48,15 @@
     color: black;
 }
 
-.introTxt {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 600px;
-    font-size: 2rem;
-    text-align: center;
-    font-family: 'Fjalla One', sans-serif;
-    text-transform: uppercase;
+
+@media (max-width: 768px) {
+    .container {
+        align-items: flex-start;
+    }
+
+    .introTxt {
+        width: 100%;
+        font-size: 1.5rem;
+        margin-top: 20px;
+    }
 }

@@ -6,7 +6,7 @@ function Home() {
     <main className={styles.container}>
       <div>
         <h2 className={styles.introTxt}>
-          Discover trendy fashion and tech with a single click!
+          Discover trendy fashion with a single click!
         </h2>
         <Link className={styles.txt} href="/shop">
           <button className={styles.shopBtn}>SHOP NOW</button>
