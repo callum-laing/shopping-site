@@ -3,7 +3,9 @@
         align-items: center;
         justify-content: space-between;
         padding-inline: 20px;
-        box-shadow: rgb(229, 229, 229) 0px -1px 0px 0px inset;
+        /* box-shadow: rgb(229, 229, 229) 0px -1px 0px 0px inset; */
+        background-color: rgba(200, 200, 200, 0.2);
+        border-bottom: 1px solid rgba(200, 200, 200, 0.4);
     }
 
     .dancingScript {

@@ -4,9 +4,14 @@ import Link from "next/link";
 function Home() {
   return (
     <main className={styles.container}>
-      <Link className={styles.txt} href="/shop">
-        <button className={styles.shopBtn}>Shop Now</button>
-      </Link>
+      <div>
+        <h2 className={styles.introTxt}>
+          Discover trendy fashion and tech with a single click!
+        </h2>
+        <Link className={styles.txt} href="/shop">
+          <button className={styles.shopBtn}>SHOP NOW</button>
+        </Link>
+      </div>
     </main>
   );
 }

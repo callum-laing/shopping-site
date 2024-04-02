@@ -1,21 +1,26 @@
 .container {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
     height: 100%;
-    background-image: url("/sneakers.jpg");
+    background-image: url("/shopBg.jpg");
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    line-height: 40px;
+}
+
+.container>div {
+    text-align: center;
 }
 
 .shopBtn {
     background-color: white;
-    width: 200px;
-    height: 50px;
-    margin-top: 200px;
-    font-size: 1.5rem;
+    width: 150px;
+    height: 40px;
+    margin-top: 50px;
+    font-size: 1rem;
     font-weight: bold;
-    border-radius: 20px;
-    box-shadow: 2px 2px 2px 2px black;
+    box-shadow: 1px 1px black;
     border: none;
 }
 
@@ -23,4 +28,22 @@
     cursor: pointer;
     background-color: black;
     color: white;
+}
+
+.txt {
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+.introTxt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 600px;
+    font-size: 2rem;
+    text-align: center;
+    font-family: 'Fjalla One', sans-serif;
+    text-transform: uppercase;
 }
