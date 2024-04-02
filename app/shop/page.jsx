@@ -4,8 +4,10 @@ import Styles from "./page.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { fetchProducts } from "../data";
+import { useCart } from "../cartContext";
 
 const Shop = () => {
+  const { addToCart } = useCart();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -47,17 +49,7 @@ const Shop = () => {
           />
           <h2>{product.title}</h2>
           <p>Price: ${product.price}</p>
-          <Link
-            href={{
-              pathname: "/cart",
-              query: {
-                id: product.id,
-                product: JSON.stringify(product),
-              },
-            }}
-          >
-            Add to cart
-          </Link>
+          <button onClick={() => addToCart(product)}>Add to cart</button>
         </div>
       ))}
     </main>
