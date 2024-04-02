@@ -2,55 +2,52 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    height: 100vh;
+    justify-content: center;
 }
 
 .card {
     box-sizing: border-box;
-    width: 500px;
-    margin-top: 25px;
-    margin-left: 50px;
+    max-width: 250px;
     padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-
-
-.card>h2 {
-    margin: 2px;
+.imageContainer {
+    position: relative;
 }
 
-.card>p {
-    margin: 2px;
+.imgCard {
+    width: 100%;
+    height: auto;
 }
 
-
-
-.btn {
-    background-color: #A3BFD7;
+.addToCartBtn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #a3bfd7;
     border: none;
     cursor: pointer;
-    padding: 10px;
-    font-size: 1.1em;
+    padding: 10px 20px;
+    font-size: 1em;
     border-radius: 20px;
+    transition: background-color 0.3s ease-in-out;
+    display: none;
 }
 
-.btn:hover {
+.imageContainer:hover .addToCartBtn {
+    display: block;
+}
+
+.addToCartBtn:hover {
     background-color: white;
-    box-shadow: 2px 2px 2px 2px #A3BFD7;
+    color: #a3bfd7;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
-@media (max-width: 769px) {
-    .shopContainer {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-    }
-}
-
-@media (max-width: 1024px) {
-    .shopContainer {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-    }
+.itemName {
+    font-size: 1rem;
 }
